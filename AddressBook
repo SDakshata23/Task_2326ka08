@@ -1,0 +1,71 @@
+package basic.corejava;
+import java.util.*;
+
+public class AddressBook {
+
+	public static void main(String[] args) {
+		        Scanner scn = new Scanner(System.in);
+		        System.out.print("Enter no.of contacts:");
+		        int n=scn.nextInt();
+		        // Define arrays to store contact information
+		        String[] names = new String[n];
+		        String[] phoneNumbers = new String[n];
+		        String[] city = new String[n];
+		        int index=0;
+		        
+		        while(true) {
+		        	System.out.println("=======Address Book======");
+		        	System.out.println("The Options");
+		        	System.out.println("1)Add contact");
+		        	System.out.println("2)Display all contact");
+		        	System.out.println("3)Search with name");
+		        	System.out.println("Enter your choice:");
+		        	int choice=scn.nextInt();
+		        	
+		        	switch(choice) {
+		        	case 1:
+		        		if(index<n) {
+		        			System.out.println("Enter the name:");
+		        			names[index]=scn.nextLine();
+		        			scn.nextLine();
+		        			System.out.println("Enter phone number:");
+		        			phoneNumbers[index]=scn.nextLine();
+		        			System.out.println("Enter city:");
+		        			city[index]=scn.nextLine();
+		        			index++;
+		        			System.out.println("Contact Added");
+		        		}
+		        		else {
+		        			System.out.println("Address Book is full");
+		        		}
+		        		break;
+		        	case 2:
+		        		for (int i = 0; i < n; i++) {
+		        			System.out.println("Displaying contact"+(i+1)+"\n");
+		        			System.out.println("Name"+(i+1)+":"+names[i]);
+		        			System.out.println("Phone.Number"+phoneNumbers[i]);
+		        			System.out.println("City:"+city[i]);
+							}
+		        		break;
+		        	case 3:
+		        		System.out.println("Enter the serch name:");
+		        		String searchname=scn.nextLine();
+		        		scn.nextLine(); 
+		        		for(int i=0;i<n;i++) {
+		        			if(searchname==names[i]) {
+		        				System.out.println(names[i]);
+		        				System.out.println(phoneNumbers[i]);
+		        				System.out.println(city[i]);
+		        				scn.close();
+		        			}
+		        			else {
+		        				System.out.println("invalid");
+		        			}
+		        		}
+		        			
+		        		
+		        		break;
+		        	}
+		        }      
+	}
+}
