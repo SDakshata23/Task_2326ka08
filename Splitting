@@ -1,0 +1,19 @@
+package task2.corejava;
+
+import java.util.Scanner;
+
+public class Splitting {
+
+	public static void main(String[] args) {
+		       Scanner in=new Scanner(System.in);
+		       System.out.println("Enter a sentence");
+		       String sentence=in.nextLine();
+		       System.out.println("Splitted words:");
+		       String[] str=sentence.split(" ");
+		       for(String word: str) {
+		    	   System.out.println(word);
+		       }
+		   	in.close();
+		        }
+	}
+
