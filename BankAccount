@@ -1,0 +1,90 @@
+package tasks;
+
+import java.util.Scanner;
+
+public class BankClass {
+
+
+		public static void main(String[] args) {
+			Scanner in=new Scanner(System.in);
+			int a;
+			BankAccount ba=new BankAccount(1000);
+			do {
+				System.out.println("BANK ACCOUNT");
+				System.out.println("Options:");
+				System.out.println("1.Deposit");
+				System.out.println("2.Withdraw");
+				System.out.println("3.Check Balance");
+				System.out.println("4.Exit");
+				System.out.println("Enter option:");
+				a=in.nextInt();
+				
+				if(a>4) {
+					System.out.println("Invalid option");
+				}
+				
+				switch (a) {
+				case 1: {
+					System.out.println("Enter your deposit amount:");
+					double depositamount=in.nextDouble();
+					ba.deposit(depositamount);
+					break;
+				}
+				case 2: {
+					System.out.println("Enter your withdraw amount:");
+					double withdrawamount=in.nextDouble();
+					ba.withdraw(withdrawamount);
+					break;
+				}
+				
+				case 3:
+				{
+					ba.checkbalance();
+					break;
+					}
+				default:
+					System.out.println("No option");
+				}
+			}while(a!=4);
+	in.close();
+		}
+	}
+
+
+
+
+
+//SubClass
+package tasks;
+
+public class BankAccount {
+
+	double balance;
+
+	public BankAccount(double initialbalance) {
+			this.balance = initialbalance;
+	}
+
+	public void deposit(double depositamount) {
+		if (depositamount>0) {
+			balance += depositamount;
+			System.out.println("Amount deposited: " + balance);
+		}else {
+			System.out.println("Negative cannot be added");
+		}
+	}
+	public void withdraw(double withdrawamount) {
+	if(withdrawamount>0 && withdrawamount<=balance) {
+		balance-=withdrawamount;
+		System.out.println("withdraw amount: "+withdrawamount);
+	}
+	else {
+		System.out.println("Insufficient");
+	}
+	}
+	
+	public void checkbalance() {
+		System.out.println("Balance: "+balance);
+
+	}
+}
